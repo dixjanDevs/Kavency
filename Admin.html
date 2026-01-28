@@ -800,7 +800,7 @@
         
         <ul class="sidebar-menu">
             <li><a href="#" class="active" onclick="showSection('dashboard')"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-            <li><a href="#" onclick="showSection('orders')"><i class="fas fa-shopping-cart"></i> Orders <span class="menu-badge" id="orderBadge">5</span></a></li>
+            <li><a href="#" onclick="showSection('orders')"><i class="fas fa-shopping-cart"></i> Orders <span class="menu-badge" id="orderBadge">0</span></a></li>
             <li><a href="#" onclick="showSection('products')"><i class="fas fa-box"></i> Products</a></li>
             <li><a href="#" onclick="showSection('categories')"><i class="fas fa-list"></i> Categories</a></li>
             <li><a href="#" onclick="showSection('customers')"><i class="fas fa-users"></i> Customers</a></li>
@@ -850,8 +850,8 @@
                     <div class="stat-card">
                         <div class="stat-info">
                             <h3>Today's Orders</h3>
-                            <h2 id="todayOrders">24</h2>
-                            <p>+5 from yesterday</p>
+                            <h2 id="todayOrders">0</h2>
+                            <p id="ordersChange">No change</p>
                         </div>
                         <div class="stat-icon orders">
                             <i class="fas fa-shopping-cart"></i>
@@ -861,8 +861,8 @@
                     <div class="stat-card">
                         <div class="stat-info">
                             <h3>Today's Revenue</h3>
-                            <h2 id="todayRevenue">K4,850</h2>
-                            <p>+12% from yesterday</p>
+                            <h2 id="todayRevenue">K0.00</h2>
+                            <p id="revenueChange">No change</p>
                         </div>
                         <div class="stat-icon revenue">
                             <i class="fas fa-money-bill-wave"></i>
@@ -872,8 +872,8 @@
                     <div class="stat-card">
                         <div class="stat-info">
                             <h3>Total Products</h3>
-                            <h2 id="totalProducts">1,245</h2>
-                            <p><span id="lowStock">42</span> low in stock</p>
+                            <h2 id="totalProducts">0</h2>
+                            <p><span id="lowStock">0</span> low in stock</p>
                         </div>
                         <div class="stat-icon products">
                             <i class="fas fa-box"></i>
@@ -883,8 +883,8 @@
                     <div class="stat-card">
                         <div class="stat-info">
                             <h3>Total Customers</h3>
-                            <h2 id="totalCustomers">892</h2>
-                            <p>+15 this week</p>
+                            <h2 id="totalCustomers">0</h2>
+                            <p id="customersChange">No change</p>
                         </div>
                         <div class="stat-icon customers">
                             <i class="fas fa-users"></i>
@@ -912,6 +912,7 @@
                             </thead>
                             <tbody id="recentOrdersTable">
                                 <!-- Recent orders will be populated by JavaScript -->
+                                <tr><td colspan="6" style="text-align: center; padding: 40px;">No orders yet</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -927,11 +928,11 @@
                 
                 <div class="card">
                     <div class="tabs">
-                        <div class="tab active" onclick="switchOrderTab('all')">All Orders (<span id="allOrdersCount">45</span>)</div>
-                        <div class="tab" onclick="switchOrderTab('pending')">Pending (<span id="pendingOrdersCount">5</span>)</div>
-                        <div class="tab" onclick="switchOrderTab('processing')">Processing (<span id="processingOrdersCount">12</span>)</div>
-                        <div class="tab" onclick="switchOrderTab('delivered')">Delivered (<span id="deliveredOrdersCount">26</span>)</div>
-                        <div class="tab" onclick="switchOrderTab('cancelled')">Cancelled (<span id="cancelledOrdersCount">2</span>)</div>
+                        <div class="tab active" onclick="switchOrderTab('all')">All Orders (<span id="allOrdersCount">0</span>)</div>
+                        <div class="tab" onclick="switchOrderTab('pending')">Pending (<span id="pendingOrdersCount">0</span>)</div>
+                        <div class="tab" onclick="switchOrderTab('processing')">Processing (<span id="processingOrdersCount">0</span>)</div>
+                        <div class="tab" onclick="switchOrderTab('delivered')">Delivered (<span id="deliveredOrdersCount">0</span>)</div>
+                        <div class="tab" onclick="switchOrderTab('cancelled')">Cancelled (<span id="cancelledOrdersCount">0</span>)</div>
                     </div>
                     
                     <div class="tab-content active" id="allOrdersTab">
@@ -949,7 +950,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="ordersTable">
-                                    <!-- Orders will be populated by JavaScript -->
+                                    <tr><td colspan="7" style="text-align: center; padding: 40px;">No orders yet</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -1124,7 +1125,7 @@
                 </div>
             </div>
 
-            <!-- Other sections (simplified for this example) -->
+            <!-- Other sections -->
             <div id="categoriesSection" class="section" style="display: none;">
                 <div class="page-title">
                     <h1>Category Management</h1>
@@ -1177,7 +1178,7 @@
                 </div>
             </div>
 
-            <!-- Inventory Section -->
+            <!-- Other sections simplified for brevity -->
             <div id="inventorySection" class="section" style="display: none;">
                 <div class="page-title">
                     <h1>Inventory Management</h1>
@@ -1213,9 +1214,9 @@
                 </div>
                 <div class="card">
                     <div class="tabs">
-                        <div class="tab active" onclick="switchDeliveryTab('pending')">Pending Delivery (<span id="pendingDeliveryCount">8</span>)</div>
-                        <div class="tab" onclick="switchDeliveryTab('out')">Out for Delivery (<span id="outDeliveryCount">5</span>)</div>
-                        <div class="tab" onclick="switchDeliveryTab('completed')">Completed (<span id="completedDeliveryCount">32</span>)</div>
+                        <div class="tab active" onclick="switchDeliveryTab('pending')">Pending Delivery (<span id="pendingDeliveryCount">0</span>)</div>
+                        <div class="tab" onclick="switchDeliveryTab('out')">Out for Delivery (<span id="outDeliveryCount">0</span>)</div>
+                        <div class="tab" onclick="switchDeliveryTab('completed')">Completed (<span id="completedDeliveryCount">0</span>)</div>
                     </div>
                     <div class="table-responsive">
                         <table id="deliveryTable">
@@ -1234,60 +1235,6 @@
                                 <!-- Delivery items will be populated by JavaScript -->
                             </tbody>
                         </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Payments Section -->
-            <div id="paymentsSection" class="section" style="display: none;">
-                <div class="page-title">
-                    <h1>Payment Management</h1>
-                </div>
-                <div class="card">
-                    <div class="tabs">
-                        <div class="tab active" onclick="switchPaymentTab('gateways')">Payment Gateways</div>
-                        <div class="tab" onclick="switchPaymentTab('transactions')">Transactions (<span id="transactionCount">45</span>)</div>
-                        <div class="tab" onclick="switchPaymentTab('settings')">Settings</div>
-                    </div>
-                    
-                    <div class="tab-content active" id="gatewaysTab">
-                        <h3 style="margin-bottom: 20px;">Configure Payment Methods</h3>
-                        <div class="form-group">
-                            <label>MTN Mobile Money</label>
-                            <div class="form-row">
-                                <input type="text" class="form-control" placeholder="Merchant Code" value="KAVENCY001">
-                                <input type="text" class="form-control" placeholder="API Key" value="••••••••••••">
-                            </div>
-                            <label style="margin-top: 10px; display: flex; align-items: center; gap: 10px;">
-                                <input type="checkbox" checked> Enable MTN Mobile Money
-                            </label>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Airtel Money</label>
-                            <div class="form-row">
-                                <input type="text" class="form-control" placeholder="Merchant Code" value="KAVENCY002">
-                                <input type="text" class="form-control" placeholder="API Key" value="••••••••••••">
-                            </div>
-                            <label style="margin-top: 10px; display: flex; align-items: center; gap: 10px;">
-                                <input type="checkbox" checked> Enable Airtel Money
-                            </label>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Zamtel Kwacha</label>
-                            <div class="form-row">
-                                <input type="text" class="form-control" placeholder="Merchant Code" value="KAVENCY003">
-                                <input type="text" class="form-control" placeholder="API Key" value="••••••••••••">
-                            </div>
-                            <label style="margin-top: 10px; display: flex; align-items: center; gap: 10px;">
-                                <input type="checkbox" checked> Enable Zamtel Kwacha
-                            </label>
-                        </div>
-                        
-                        <button class="btn btn-primary" onclick="savePaymentSettings()">
-                            <i class="fas fa-save"></i> Save Payment Settings
-                        </button>
                     </div>
                 </div>
             </div>
@@ -1347,114 +1294,15 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Settings Section -->
-            <div id="settingsSection" class="section" style="display: none;">
-                <div class="page-title">
-                    <h1>System Settings</h1>
-                </div>
-                <div class="card">
-                    <div class="tabs">
-                        <div class="tab active" onclick="switchSettingsTab('general')">General</div>
-                        <div class="tab" onclick="switchSettingsTab('store')">Store Settings</div>
-                        <div class="tab" onclick="switchSettingsTab('delivery')">Delivery Settings</div>
-                        <div class="tab" onclick="switchSettingsTab('notifications')">Notifications</div>
-                    </div>
-                    
-                    <div class="tab-content active" id="generalSettings">
-                        <h3>General Settings</h3>
-                        <div class="form-group">
-                            <label>Store Name</label>
-                            <input type="text" class="form-control" value="Kavency Super Market">
-                        </div>
-                        <div class="form-group">
-                            <label>Store Email</label>
-                            <input type="email" class="form-control" value="info@kavency.co.zm">
-                        </div>
-                        <div class="form-group">
-                            <label>Store Phone</label>
-                            <input type="text" class="form-control" value="+260 211 123456">
-                        </div>
-                        <div class="form-group">
-                            <label>Store Address</label>
-                            <textarea class="form-control" rows="3">123 Great East Road, Lusaka, Zambia</textarea>
-                        </div>
-                        <button class="btn btn-primary">Save Settings</button>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
     <script>
         // ==================== GLOBAL VARIABLES ====================
-        let products = JSON.parse(localStorage.getItem('kavency_products')) || [
-            {
-                id: 'P001',
-                name: 'Fresh Tomatoes (1kg)',
-                category: 'produce',
-                price: 12.99,
-                stock: 45,
-                description: 'Locally grown, ripe tomatoes',
-                sku: 'TOM-001',
-                weight: 1.0,
-                discount: 0,
-                featured: 'yes',
-                images: ['https://images.unsplash.com/photo-1586201375761-83865001e31c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
-            },
-            {
-                id: 'P002',
-                name: 'Chicken Breasts (1kg)',
-                category: 'meat',
-                price: 45.99,
-                stock: 22,
-                description: 'Skinless, boneless chicken breasts',
-                sku: 'CHK-001',
-                weight: 1.0,
-                discount: 0,
-                featured: 'yes',
-                images: ['https://images.unsplash.com/photo-1621996346565-e3dbc353d2a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
-            },
-            {
-                id: 'P003',
-                name: 'Fresh Milk (2L)',
-                category: 'dairy',
-                price: 18.50,
-                stock: 3,
-                description: 'Full cream pasteurized milk',
-                sku: 'MLK-001',
-                weight: 2.0,
-                discount: 0,
-                featured: 'no',
-                images: ['https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
-            }
-        ];
-
-        let categories = JSON.parse(localStorage.getItem('kavency_categories')) || [
-            { id: 'cat1', name: 'Produce', description: 'Fresh fruits and vegetables', productCount: 156 },
-            { id: 'cat2', name: 'Meat & Seafood', description: 'Quality cuts, poultry & fresh fish', productCount: 89 },
-            { id: 'cat3', name: 'Dairy & Eggs', description: 'Milk, cheese, yogurt & fresh eggs', productCount: 67 },
-            { id: 'cat4', name: 'Bakery', description: 'Fresh bread, cakes & pastries', productCount: 45 },
-            { id: 'cat5', name: 'Beverages', description: 'Drinks and beverages', productCount: 112 },
-            { id: 'cat6', name: 'Household', description: 'Cleaning and household items', productCount: 203 }
-        ];
-
-        let orders = JSON.parse(localStorage.getItem('kavency_orders')) || [
-            { id: 'ORD-789012', customer: 'John Banda', phone: '+260 971 123456', address: '123 Lusaka Road', date: '2023-10-15', amount: 245.50, payment: 'MTN Mobile Money', status: 'processing', items: [{name: 'Fresh Tomatoes (1kg)', price: 12.99, quantity: 2}, {name: 'Chicken Breasts (1kg)', price: 45.99, quantity: 1}] },
-            { id: 'ORD-789011', customer: 'Mary Phiri', phone: '+260 977 654321', address: '456 Cairo Road', date: '2023-10-15', amount: 189.99, payment: 'Airtel Money', status: 'pending', items: [{name: 'Fresh Milk (2L)', price: 18.50, quantity: 3}, {name: 'Brown Bread', price: 8.99, quantity: 2}] },
-            { id: 'ORD-789010', customer: 'Peter Mwale', phone: '+260 955 789012', address: '789 Kitwe Street', date: '2023-10-14', amount: 320.00, payment: 'Zanaco Transfer', status: 'delivered', items: [{name: 'Chicken Breasts (1kg)', price: 45.99, quantity: 5}] },
-            { id: 'ORD-789009', customer: 'Sarah Kunda', phone: '+260 961 345678', address: '321 Ndola Avenue', date: '2023-10-14', amount: 156.75, payment: 'FNB Transfer', status: 'delivered', items: [{name: 'Fresh Tomatoes (1kg)', price: 12.99, quantity: 4}, {name: 'Brown Bread', price: 8.99, quantity: 3}] },
-            { id: 'ORD-789008', customer: 'David Mumba', phone: '+260 966 901234', address: '654 Livingstone Road', date: '2023-10-13', amount: 410.25, payment: 'Zamtel Kwacha', status: 'cancelled', items: [{name: 'Chicken Breasts (1kg)', price: 45.99, quantity: 8}] }
-        ];
-
-        let customers = JSON.parse(localStorage.getItem('kavency_customers')) || [
-            { id: 'C001', name: 'John Banda', email: 'john@example.com', phone: '+260 971 123456', orders: 5, totalSpent: 1250.75 },
-            { id: 'C002', name: 'Mary Phiri', email: 'mary@example.com', phone: '+260 977 654321', orders: 3, totalSpent: 560.25 },
-            { id: 'C003', name: 'Peter Mwale', email: 'peter@example.com', phone: '+260 955 789012', orders: 8, totalSpent: 2100.50 },
-            { id: 'C004', name: 'Sarah Kunda', email: 'sarah@example.com', phone: '+260 961 345678', orders: 2, totalSpent: 320.00 },
-            { id: 'C005', name: 'David Mumba', email: 'david@example.com', phone: '+260 966 901234', orders: 1, totalSpent: 410.25 }
-        ];
-
+        let products = [];
+        let categories = [];
+        let orders = [];
+        let customers = [];
         let currentProductId = null;
         let uploadedImages = [];
         let currentOrderId = null;
@@ -1466,23 +1314,151 @@
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', options);
             
-            // Initialize dashboard
-            initializeDashboard();
-            
             // Load all data
-            loadProducts();
-            loadCategories();
-            loadOrders();
-            loadCustomers();
-            loadInventory();
+            loadInitialData();
             
             // Set up event listeners
             setupEventListeners();
+            
+            // Initialize dashboard
+            initializeDashboard();
         });
+
+        function loadInitialData() {
+            // Try to load from localStorage
+            try {
+                products = JSON.parse(localStorage.getItem('kavency_products')) || [];
+                categories = JSON.parse(localStorage.getItem('kavency_categories')) || [];
+                orders = JSON.parse(localStorage.getItem('kavency_orders')) || [];
+                customers = JSON.parse(localStorage.getItem('kavency_customers')) || [];
+                
+                // Load admin orders separately
+                const adminOrders = JSON.parse(localStorage.getItem('kavency_admin_orders')) || [];
+                if (adminOrders.length > 0) {
+                    orders = adminOrders;
+                }
+                
+                // If no products, load defaults
+                if (products.length === 0) {
+                    loadDefaultProducts();
+                }
+                
+                if (categories.length === 0) {
+                    loadDefaultCategories();
+                }
+                
+                if (customers.length === 0) {
+                    loadDefaultCustomers();
+                }
+                
+            } catch (error) {
+                console.error('Error loading data:', error);
+                loadDefaultData();
+            }
+            
+            // Initialize UI
+            loadProducts();
+            loadCategories();
+            loadOrdersTable();
+            loadCustomersTable();
+        }
+
+        function loadDefaultData() {
+            products = [
+                {
+                    id: 'P001',
+                    name: 'Fresh Tomatoes (1kg)',
+                    category: 'cat1',
+                    price: 12.99,
+                    stock: 45,
+                    description: 'Locally grown, ripe tomatoes',
+                    sku: 'TOM-001',
+                    weight: 1.0,
+                    discount: 0,
+                    featured: 'yes',
+                    images: ['https://images.unsplash.com/photo-1586201375761-83865001e31c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
+                },
+                {
+                    id: 'P002',
+                    name: 'Chicken Breasts (1kg)',
+                    category: 'cat2',
+                    price: 45.99,
+                    stock: 22,
+                    description: 'Skinless, boneless chicken breasts',
+                    sku: 'CHK-001',
+                    weight: 1.0,
+                    discount: 0,
+                    featured: 'yes',
+                    images: ['https://images.unsplash.com/photo-1621996346565-e3dbc353d2a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
+                }
+            ];
+            
+            categories = [
+                { id: 'cat1', name: 'Produce', description: 'Fresh fruits and vegetables', productCount: 156 },
+                { id: 'cat2', name: 'Meat & Seafood', description: 'Quality cuts, poultry & fresh fish', productCount: 89 }
+            ];
+            
+            customers = [
+                { id: 'C001', name: 'John Banda', email: 'john@example.com', phone: '+260 971 123456', orders: 5, totalSpent: 1250.75 }
+            ];
+            
+            // Save to localStorage
+            localStorage.setItem('kavency_products', JSON.stringify(products));
+            localStorage.setItem('kavency_categories', JSON.stringify(categories));
+            localStorage.setItem('kavency_customers', JSON.stringify(customers));
+        }
+
+        function loadDefaultProducts() {
+            products = [
+                {
+                    id: 'P001',
+                    name: 'Fresh Tomatoes (1kg)',
+                    category: 'cat1',
+                    price: 12.99,
+                    stock: 45,
+                    description: 'Locally grown, ripe tomatoes',
+                    sku: 'TOM-001',
+                    weight: 1.0,
+                    discount: 0,
+                    featured: 'yes',
+                    images: ['https://images.unsplash.com/photo-1586201375761-83865001e31c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
+                },
+                {
+                    id: 'P002',
+                    name: 'Chicken Breasts (1kg)',
+                    category: 'cat2',
+                    price: 45.99,
+                    stock: 22,
+                    description: 'Skinless, boneless chicken breasts',
+                    sku: 'CHK-001',
+                    weight: 1.0,
+                    discount: 0,
+                    featured: 'yes',
+                    images: ['https://images.unsplash.com/photo-1621996346565-e3dbc353d2a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
+                }
+            ];
+            localStorage.setItem('kavency_products', JSON.stringify(products));
+        }
+
+        function loadDefaultCategories() {
+            categories = [
+                { id: 'cat1', name: 'Produce', description: 'Fresh fruits and vegetables', productCount: 156 },
+                { id: 'cat2', name: 'Meat & Seafood', description: 'Quality cuts, poultry & fresh fish', productCount: 89 },
+                { id: 'cat3', name: 'Dairy & Eggs', description: 'Milk, cheese, yogurt & fresh eggs', productCount: 67 },
+                { id: 'cat4', name: 'Bakery', description: 'Fresh bread, cakes & pastries', productCount: 45 }
+            ];
+            localStorage.setItem('kavency_categories', JSON.stringify(categories));
+        }
+
+        function loadDefaultCustomers() {
+            customers = [
+                { id: 'C001', name: 'John Banda', email: 'john@example.com', phone: '+260 971 123456', orders: 5, totalSpent: 1250.75 }
+            ];
+            localStorage.setItem('kavency_customers', JSON.stringify(customers));
+        }
 
         // ==================== DASHBOARD FUNCTIONS ====================
         function initializeDashboard() {
-            // Update stats
             updateDashboardStats();
             loadRecentOrders();
         }
@@ -1490,7 +1466,7 @@
         function updateDashboardStats() {
             const today = new Date().toISOString().split('T')[0];
             const todayOrders = orders.filter(order => order.date === today);
-            const todayRevenue = todayOrders.reduce((sum, order) => sum + order.amount, 0);
+            const todayRevenue = todayOrders.reduce((sum, order) => sum + (order.amount || 0), 0);
             const lowStock = products.filter(p => p.stock < 10).length;
             
             document.getElementById('todayOrders').textContent = todayOrders.length;
@@ -1498,11 +1474,24 @@
             document.getElementById('totalProducts').textContent = products.length;
             document.getElementById('lowStock').textContent = lowStock;
             document.getElementById('totalCustomers').textContent = customers.length;
+            
+            // Update order badge
+            const orderBadge = document.getElementById('orderBadge');
+            if (orderBadge) {
+                orderBadge.textContent = orders.length;
+            }
         }
 
         function loadRecentOrders() {
             const table = document.getElementById('recentOrdersTable');
+            if (!table) return;
+            
             table.innerHTML = '';
+            
+            if (orders.length === 0) {
+                table.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 40px;">No orders yet</td></tr>';
+                return;
+            }
             
             // Sort orders by date (newest first) and take first 5
             const recentOrders = [...orders]
@@ -1512,11 +1501,11 @@
             recentOrders.forEach(order => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td><strong>${order.id}</strong></td>
-                    <td>${order.customer}</td>
-                    <td>K${order.amount.toFixed(2)}</td>
-                    <td>${order.payment}</td>
-                    <td><span class="status status-${order.status}">${order.status.charAt(0).toUpperCase() + order.status.slice(1)}</span></td>
+                    <td><strong>${order.id || 'N/A'}</strong></td>
+                    <td>${order.customer || 'N/A'}</td>
+                    <td>K${(order.amount || 0).toFixed(2)}</td>
+                    <td>${order.payment || 'N/A'}</td>
+                    <td><span class="status status-${order.status || 'pending'}">${(order.status || 'pending').charAt(0).toUpperCase() + (order.status || 'pending').slice(1)}</span></td>
                     <td>
                         <button class="btn btn-primary btn-sm" onclick="viewOrderDetails('${order.id}')">
                             <i class="fas fa-eye"></i> View
@@ -1540,7 +1529,10 @@
             });
             
             // Show selected section
-            document.getElementById(sectionId + 'Section').style.display = 'block';
+            const section = document.getElementById(sectionId + 'Section');
+            if (section) {
+                section.style.display = 'block';
+            }
             
             // Add active class to clicked menu item
             const menuItem = document.querySelector(`.sidebar-menu a[onclick*="${sectionId}"]`);
@@ -1567,12 +1559,6 @@
                 case 'customers':
                     loadCustomersTable();
                     break;
-                case 'inventory':
-                    loadInventoryTable();
-                    break;
-                case 'delivery':
-                    loadDeliveryTable();
-                    break;
             }
         }
 
@@ -1587,12 +1573,20 @@
             const categoryFilter = document.getElementById('categoryFilter');
             const productCategory = document.getElementById('productCategory');
             
-            categoryFilter.innerHTML = '<option value="">All Categories</option>';
-            productCategory.innerHTML = '<option value="">Select Category</option>';
+            if (categoryFilter) {
+                categoryFilter.innerHTML = '<option value="">All Categories</option>';
+            }
+            if (productCategory) {
+                productCategory.innerHTML = '<option value="">Select Category</option>';
+            }
             
             categories.forEach(category => {
-                categoryFilter.innerHTML += `<option value="${category.id}">${category.name}</option>`;
-                productCategory.innerHTML += `<option value="${category.id}">${category.name}</option>`;
+                if (categoryFilter) {
+                    categoryFilter.innerHTML += `<option value="${category.id}">${category.name}</option>`;
+                }
+                if (productCategory) {
+                    productCategory.innerHTML += `<option value="${category.id}">${category.name}</option>`;
+                }
             });
             
             // Filter products
@@ -1600,13 +1594,16 @@
         }
 
         function filterProducts() {
-            const searchTerm = document.getElementById('productSearch').value.toLowerCase();
-            const categoryFilter = document.getElementById('categoryFilter').value;
+            const searchInput = document.getElementById('productSearch');
+            const categoryFilter = document.getElementById('categoryFilter');
+            
+            const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+            const categoryValue = categoryFilter ? categoryFilter.value : '';
             
             const filteredProducts = products.filter(product => {
                 const matchesSearch = product.name.toLowerCase().includes(searchTerm) || 
-                                     product.description.toLowerCase().includes(searchTerm);
-                const matchesCategory = !categoryFilter || product.category === categoryFilter;
+                                     (product.description && product.description.toLowerCase().includes(searchTerm));
+                const matchesCategory = !categoryValue || product.category === categoryValue;
                 return matchesSearch && matchesCategory;
             });
             
@@ -1615,7 +1612,14 @@
 
         function renderProductsTable(productsToShow) {
             const table = document.getElementById('productsTable');
+            if (!table) return;
+            
             table.innerHTML = '';
+            
+            if (productsToShow.length === 0) {
+                table.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 40px;">No products found</td></tr>';
+                return;
+            }
             
             productsToShow.forEach(product => {
                 const category = categories.find(c => c.id === product.category) || { name: 'Uncategorized' };
@@ -1626,10 +1630,10 @@
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>${product.id}</td>
-                    <td><img src="${product.images[0] || 'https://via.placeholder.com/60x60'}" alt="${product.name}" class="product-image"></td>
+                    <td><img src="${product.images && product.images[0] ? product.images[0] : 'https://via.placeholder.com/60x60'}" alt="${product.name}" class="product-image"></td>
                     <td>
                         <strong>${product.name}</strong><br>
-                        <small style="color: #666;">${product.description.substring(0, 50)}...</small>
+                        <small style="color: #666;">${product.description ? product.description.substring(0, 50) + '...' : ''}</small>
                     </td>
                     <td>${category.name}</td>
                     <td><strong>K${product.price.toFixed(2)}</strong></td>
@@ -1650,9 +1654,11 @@
 
         function showAddProductModal() {
             currentProductId = null;
-            document.getElementById('productModalTitle').textContent = 'Add New Product';
+            const title = document.getElementById('productModalTitle');
+            if (title) title.textContent = 'Add New Product';
             resetProductForm();
-            document.getElementById('productModal').style.display = 'flex';
+            const modal = document.getElementById('productModal');
+            if (modal) modal.style.display = 'flex';
         }
 
         function editProduct(productId) {
@@ -1660,39 +1666,64 @@
             const product = products.find(p => p.id === productId);
             
             if (product) {
-                document.getElementById('productModalTitle').textContent = 'Edit Product';
-                document.getElementById('productName').value = product.name;
-                document.getElementById('productCategory').value = product.category;
-                document.getElementById('productPrice').value = product.price;
-                document.getElementById('productStock').value = product.stock;
-                document.getElementById('productDescription').value = product.description;
-                document.getElementById('productSKU').value = product.sku;
-                document.getElementById('productWeight').value = product.weight;
-                document.getElementById('productDiscount').value = product.discount || 0;
-                document.getElementById('productFeatured').value = product.featured || 'no';
+                const title = document.getElementById('productModalTitle');
+                if (title) title.textContent = 'Edit Product';
                 
-                uploadedImages = [...product.images];
+                const nameInput = document.getElementById('productName');
+                const categoryInput = document.getElementById('productCategory');
+                const priceInput = document.getElementById('productPrice');
+                const stockInput = document.getElementById('productStock');
+                const descInput = document.getElementById('productDescription');
+                const skuInput = document.getElementById('productSKU');
+                const weightInput = document.getElementById('productWeight');
+                const discountInput = document.getElementById('productDiscount');
+                const featuredInput = document.getElementById('productFeatured');
+                
+                if (nameInput) nameInput.value = product.name;
+                if (categoryInput) categoryInput.value = product.category;
+                if (priceInput) priceInput.value = product.price;
+                if (stockInput) stockInput.value = product.stock;
+                if (descInput) descInput.value = product.description || '';
+                if (skuInput) skuInput.value = product.sku || '';
+                if (weightInput) weightInput.value = product.weight || 0;
+                if (discountInput) discountInput.value = product.discount || 0;
+                if (featuredInput) featuredInput.value = product.featured || 'no';
+                
+                uploadedImages = [...(product.images || [])];
                 updateImagePreview();
                 
-                document.getElementById('productModal').style.display = 'flex';
+                const modal = document.getElementById('productModal');
+                if (modal) modal.style.display = 'flex';
             }
         }
 
         function closeProductModal() {
-            document.getElementById('productModal').style.display = 'none';
+            const modal = document.getElementById('productModal');
+            if (modal) modal.style.display = 'none';
             resetProductForm();
         }
 
         function resetProductForm() {
-            document.getElementById('productName').value = '';
-            document.getElementById('productCategory').value = '';
-            document.getElementById('productPrice').value = '';
-            document.getElementById('productStock').value = '';
-            document.getElementById('productDescription').value = '';
-            document.getElementById('productSKU').value = '';
-            document.getElementById('productWeight').value = '';
-            document.getElementById('productDiscount').value = '';
-            document.getElementById('productFeatured').value = 'no';
+            const nameInput = document.getElementById('productName');
+            const categoryInput = document.getElementById('productCategory');
+            const priceInput = document.getElementById('productPrice');
+            const stockInput = document.getElementById('productStock');
+            const descInput = document.getElementById('productDescription');
+            const skuInput = document.getElementById('productSKU');
+            const weightInput = document.getElementById('productWeight');
+            const discountInput = document.getElementById('productDiscount');
+            const featuredInput = document.getElementById('productFeatured');
+            
+            if (nameInput) nameInput.value = '';
+            if (categoryInput) categoryInput.value = '';
+            if (priceInput) priceInput.value = '';
+            if (stockInput) stockInput.value = '';
+            if (descInput) descInput.value = '';
+            if (skuInput) skuInput.value = '';
+            if (weightInput) weightInput.value = '';
+            if (discountInput) discountInput.value = '';
+            if (featuredInput) featuredInput.value = 'no';
+            
             uploadedImages = [];
             updateImagePreview();
         }
@@ -1716,6 +1747,8 @@
 
         function updateImagePreview() {
             const preview = document.getElementById('imagePreview');
+            if (!preview) return;
+            
             preview.innerHTML = '';
             
             uploadedImages.forEach((imgData, index) => {
@@ -1735,15 +1768,30 @@
         }
 
         function saveProduct() {
-            const name = document.getElementById('productName').value.trim();
-            const category = document.getElementById('productCategory').value;
-            const price = parseFloat(document.getElementById('productPrice').value);
-            const stock = parseInt(document.getElementById('productStock').value);
-            const description = document.getElementById('productDescription').value.trim();
-            const sku = document.getElementById('productSKU').value.trim();
-            const weight = parseFloat(document.getElementById('productWeight').value) || 0;
-            const discount = parseFloat(document.getElementById('productDiscount').value) || 0;
-            const featured = document.getElementById('productFeatured').value;
+            const nameInput = document.getElementById('productName');
+            const categoryInput = document.getElementById('productCategory');
+            const priceInput = document.getElementById('productPrice');
+            const stockInput = document.getElementById('productStock');
+            const descInput = document.getElementById('productDescription');
+            const skuInput = document.getElementById('productSKU');
+            const weightInput = document.getElementById('productWeight');
+            const discountInput = document.getElementById('productDiscount');
+            const featuredInput = document.getElementById('productFeatured');
+            
+            if (!nameInput || !categoryInput || !priceInput || !stockInput) {
+                alert('Form elements not found');
+                return;
+            }
+            
+            const name = nameInput.value.trim();
+            const category = categoryInput.value;
+            const price = parseFloat(priceInput.value);
+            const stock = parseInt(stockInput.value);
+            const description = descInput ? descInput.value.trim() : '';
+            const sku = skuInput ? skuInput.value.trim() : '';
+            const weight = weightInput ? parseFloat(weightInput.value) || 0 : 0;
+            const discount = discountInput ? parseFloat(discountInput.value) || 0 : 0;
+            const featured = featuredInput ? featuredInput.value : 'no';
             
             // Validation
             if (!name || !category || isNaN(price) || price <= 0 || isNaN(stock) || stock < 0) {
@@ -1791,8 +1839,8 @@
             // Save to localStorage
             localStorage.setItem('kavency_products', JSON.stringify(products));
             
-            // Update frontend store iframe
-            updateFrontendStore();
+            // Update frontend store
+            localStorage.setItem('kavency_store_updated', new Date().toISOString());
             
             // Close modal and refresh
             closeProductModal();
@@ -1808,7 +1856,7 @@
                 localStorage.setItem('kavency_products', JSON.stringify(products));
                 filterProducts();
                 updateDashboardStats();
-                updateFrontendStore();
+                localStorage.setItem('kavency_store_updated', new Date().toISOString());
                 alert('Product deleted successfully!');
             }
         }
@@ -1816,32 +1864,29 @@
         // ==================== ORDER MANAGEMENT ====================
         function loadOrdersTable() {
             const table = document.getElementById('ordersTable');
+            if (!table) return;
+            
             table.innerHTML = '';
             
-            // Count orders by status
-            const allCount = orders.length;
-            const pendingCount = orders.filter(o => o.status === 'pending').length;
-            const processingCount = orders.filter(o => o.status === 'processing').length;
-            const deliveredCount = orders.filter(o => o.status === 'delivered').length;
-            const cancelledCount = orders.filter(o => o.status === 'cancelled').length;
+            if (orders.length === 0) {
+                table.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 40px;">No orders yet</td></tr>';
+                updateOrderCounts();
+                return;
+            }
             
-            // Update counts
-            document.getElementById('allOrdersCount').textContent = allCount;
-            document.getElementById('pendingOrdersCount').textContent = pendingCount;
-            document.getElementById('processingOrdersCount').textContent = processingCount;
-            document.getElementById('deliveredOrdersCount').textContent = deliveredCount;
-            document.getElementById('cancelledOrdersCount').textContent = cancelledCount;
+            // Count orders by status
+            updateOrderCounts();
             
             // Display all orders
             orders.forEach(order => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td><strong>${order.id}</strong></td>
-                    <td>${order.customer}</td>
-                    <td>${order.date}</td>
-                    <td><strong>K${order.amount.toFixed(2)}</strong></td>
-                    <td>${order.payment}</td>
-                    <td><span class="status status-${order.status}">${order.status.charAt(0).toUpperCase() + order.status.slice(1)}</span></td>
+                    <td><strong>${order.id || 'N/A'}</strong></td>
+                    <td>${order.customer || 'N/A'}</td>
+                    <td>${order.date || 'N/A'}</td>
+                    <td><strong>K${(order.amount || 0).toFixed(2)}</strong></td>
+                    <td>${order.payment || 'N/A'}</td>
+                    <td><span class="status status-${order.status || 'pending'}">${(order.status || 'pending').charAt(0).toUpperCase() + (order.status || 'pending').slice(1)}</span></td>
                     <td>
                         <button class="btn btn-primary btn-sm" onclick="viewOrderDetails('${order.id}')">
                             <i class="fas fa-eye"></i>
@@ -1855,29 +1900,59 @@
             });
         }
 
+        function updateOrderCounts() {
+            const allCount = orders.length;
+            const pendingCount = orders.filter(o => o.status === 'pending').length;
+            const processingCount = orders.filter(o => o.status === 'processing').length;
+            const deliveredCount = orders.filter(o => o.status === 'delivered').length;
+            const cancelledCount = orders.filter(o => o.status === 'cancelled').length;
+            
+            const allCountElement = document.getElementById('allOrdersCount');
+            const pendingCountElement = document.getElementById('pendingOrdersCount');
+            const processingCountElement = document.getElementById('processingOrdersCount');
+            const deliveredCountElement = document.getElementById('deliveredOrdersCount');
+            const cancelledCountElement = document.getElementById('cancelledOrdersCount');
+            
+            if (allCountElement) allCountElement.textContent = allCount;
+            if (pendingCountElement) pendingCountElement.textContent = pendingCount;
+            if (processingCountElement) processingCountElement.textContent = processingCount;
+            if (deliveredCountElement) deliveredCountElement.textContent = deliveredCount;
+            if (cancelledCountElement) cancelledCountElement.textContent = cancelledCount;
+        }
+
         function switchOrderTab(tab) {
             // Update active tab
             document.querySelectorAll('.tabs .tab').forEach(tabEl => {
                 tabEl.classList.remove('active');
             });
-            event.target.classList.add('active');
+            
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
             
             // Filter orders by status
             const filteredOrders = tab === 'all' ? orders : orders.filter(o => o.status === tab);
             
             // Update table
             const table = document.getElementById('ordersTable');
+            if (!table) return;
+            
             table.innerHTML = '';
+            
+            if (filteredOrders.length === 0) {
+                table.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 40px;">No orders found</td></tr>';
+                return;
+            }
             
             filteredOrders.forEach(order => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td><strong>${order.id}</strong></td>
-                    <td>${order.customer}</td>
-                    <td>${order.date}</td>
-                    <td><strong>K${order.amount.toFixed(2)}</strong></td>
-                    <td>${order.payment}</td>
-                    <td><span class="status status-${order.status}">${order.status.charAt(0).toUpperCase() + order.status.slice(1)}</span></td>
+                    <td><strong>${order.id || 'N/A'}</strong></td>
+                    <td>${order.customer || 'N/A'}</td>
+                    <td>${order.date || 'N/A'}</td>
+                    <td><strong>K${(order.amount || 0).toFixed(2)}</strong></td>
+                    <td>${order.payment || 'N/A'}</td>
+                    <td><span class="status status-${order.status || 'pending'}">${(order.status || 'pending').charAt(0).toUpperCase() + (order.status || 'pending').slice(1)}</span></td>
                     <td>
                         <button class="btn btn-primary btn-sm" onclick="viewOrderDetails('${order.id}')">
                             <i class="fas fa-eye"></i>
@@ -1896,45 +1971,67 @@
             const order = orders.find(o => o.id === orderId);
             
             if (order) {
-                document.getElementById('orderIdDisplay').textContent = orderId;
-                document.getElementById('customerName').textContent = order.customer;
-                document.getElementById('customerPhone').textContent = order.phone;
-                document.getElementById('customerAddress').textContent = order.address;
-                document.getElementById('deliveryTime').textContent = order.deliveryTime || 'ASAP';
-                document.getElementById('paymentMethod').textContent = order.payment;
-                document.getElementById('paymentStatus').textContent = order.paymentStatus || 'Pending';
-                document.getElementById('transactionId').textContent = order.transactionId || 'N/A';
-                document.getElementById('updateOrderStatus').value = order.status;
+                const orderIdDisplay = document.getElementById('orderIdDisplay');
+                const customerName = document.getElementById('customerName');
+                const customerPhone = document.getElementById('customerPhone');
+                const customerAddress = document.getElementById('customerAddress');
+                const deliveryTime = document.getElementById('deliveryTime');
+                const paymentMethod = document.getElementById('paymentMethod');
+                const paymentStatus = document.getElementById('paymentStatus');
+                const transactionId = document.getElementById('transactionId');
+                const updateOrderStatus = document.getElementById('updateOrderStatus');
+                
+                if (orderIdDisplay) orderIdDisplay.textContent = orderId;
+                if (customerName) customerName.textContent = order.customer || 'N/A';
+                if (customerPhone) customerPhone.textContent = order.phone || 'N/A';
+                if (customerAddress) customerAddress.textContent = order.address || 'N/A';
+                if (deliveryTime) deliveryTime.textContent = order.deliveryTime || 'ASAP';
+                if (paymentMethod) paymentMethod.textContent = order.payment || 'N/A';
+                if (paymentStatus) paymentStatus.textContent = order.paymentStatus || 'Pending';
+                if (transactionId) transactionId.textContent = order.transactionId || 'N/A';
+                if (updateOrderStatus) updateOrderStatus.value = order.status || 'pending';
                 
                 // Load order items
                 const itemsList = document.getElementById('orderItemsList');
-                itemsList.innerHTML = '';
+                if (itemsList) {
+                    itemsList.innerHTML = '';
+                    
+                    if (order.items && order.items.length > 0) {
+                        order.items.forEach(item => {
+                            const itemDiv = document.createElement('div');
+                            itemDiv.className = 'order-item';
+                            itemDiv.innerHTML = `
+                                <span>${item.quantity || 1} × ${item.name || 'Item'}</span>
+                                <span>K${((item.price || 0) * (item.quantity || 1)).toFixed(2)}</span>
+                            `;
+                            itemsList.appendChild(itemDiv);
+                        });
+                    } else {
+                        itemsList.innerHTML = '<p>No items found</p>';
+                    }
+                }
                 
-                order.items.forEach(item => {
-                    const itemDiv = document.createElement('div');
-                    itemDiv.className = 'order-item';
-                    itemDiv.innerHTML = `
-                        <span>${item.quantity} × ${item.name}</span>
-                        <span>K${(item.price * item.quantity).toFixed(2)}</span>
-                    `;
-                    itemsList.appendChild(itemDiv);
-                });
-                
-                document.getElementById('orderDetailsModal').style.display = 'flex';
+                const modal = document.getElementById('orderDetailsModal');
+                if (modal) modal.style.display = 'flex';
             }
         }
 
         function closeOrderDetailsModal() {
-            document.getElementById('orderDetailsModal').style.display = 'none';
+            const modal = document.getElementById('orderDetailsModal');
+            if (modal) modal.style.display = 'none';
         }
 
         function updateOrderStatus() {
-            const newStatus = document.getElementById('updateOrderStatus').value;
+            const statusInput = document.getElementById('updateOrderStatus');
+            if (!statusInput) return;
+            
+            const newStatus = statusInput.value;
             const orderIndex = orders.findIndex(o => o.id === currentOrderId);
             
             if (orderIndex !== -1) {
                 orders[orderIndex].status = newStatus;
                 localStorage.setItem('kavency_orders', JSON.stringify(orders));
+                localStorage.setItem('kavency_admin_orders', JSON.stringify(orders));
                 loadOrdersTable();
                 loadRecentOrders();
                 updateDashboardStats();
@@ -1947,10 +2044,11 @@
             currentOrderId = orderId;
             const order = orders.find(o => o.id === orderId);
             if (order) {
-                const newStatus = prompt('Enter new status (pending, processing, delivered, cancelled):', order.status);
+                const newStatus = prompt('Enter new status (pending, processing, delivered, cancelled):', order.status || 'pending');
                 if (newStatus && ['pending', 'processing', 'delivered', 'cancelled'].includes(newStatus.toLowerCase())) {
                     order.status = newStatus.toLowerCase();
                     localStorage.setItem('kavency_orders', JSON.stringify(orders));
+                    localStorage.setItem('kavency_admin_orders', JSON.stringify(orders));
                     loadOrdersTable();
                     loadRecentOrders();
                     updateDashboardStats();
@@ -1960,32 +2058,43 @@
         }
 
         function exportOrders() {
+            if (orders.length === 0) {
+                alert('No orders to export');
+                return;
+            }
+            
             // In a real application, this would generate a CSV or Excel file
             const exportData = orders.map(order => ({
                 'Order ID': order.id,
                 'Customer': order.customer,
                 'Date': order.date,
-                'Amount': `K${order.amount.toFixed(2)}`,
+                'Amount': `K${(order.amount || 0).toFixed(2)}`,
                 'Payment Method': order.payment,
                 'Status': order.status
             }));
             
-            // For demo purposes, show the data in an alert
             alert('Orders exported successfully! In a real system, this would download a file.\n\nTotal orders: ' + orders.length);
         }
 
         // ==================== CATEGORY MANAGEMENT ====================
         function loadCategoriesTable() {
             const table = document.querySelector('#categoriesTable tbody');
+            if (!table) return;
+            
             table.innerHTML = '';
+            
+            if (categories.length === 0) {
+                table.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 40px;">No categories yet</td></tr>';
+                return;
+            }
             
             categories.forEach(category => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>${category.id}</td>
                     <td><strong>${category.name}</strong></td>
-                    <td>${category.description}</td>
-                    <td><span class="badge">${category.productCount}</span></td>
+                    <td>${category.description || ''}</td>
+                    <td><span class="badge">${category.productCount || 0}</span></td>
                     <td>
                         <button class="btn btn-primary btn-sm">
                             <i class="fas fa-edit"></i>
@@ -2016,7 +2125,14 @@
         // ==================== CUSTOMER MANAGEMENT ====================
         function loadCustomersTable() {
             const table = document.querySelector('#customersTable tbody');
+            if (!table) return;
+            
             table.innerHTML = '';
+            
+            if (customers.length === 0) {
+                table.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 40px;">No customers yet</td></tr>';
+                return;
+            }
             
             customers.forEach(customer => {
                 const row = document.createElement('tr');
@@ -2025,8 +2141,8 @@
                     <td><strong>${customer.name}</strong></td>
                     <td>${customer.email}</td>
                     <td>${customer.phone}</td>
-                    <td>${customer.orders}</td>
-                    <td>K${customer.totalSpent.toFixed(2)}</td>
+                    <td>${customer.orders || 0}</td>
+                    <td>K${(customer.totalSpent || 0).toFixed(2)}</td>
                     <td>
                         <button class="btn btn-primary btn-sm">
                             <i class="fas fa-eye"></i>
@@ -2040,219 +2156,9 @@
             });
         }
 
-        // ==================== INVENTORY MANAGEMENT ====================
-        function loadInventoryTable() {
-            const table = document.querySelector('#inventoryTable tbody');
-            table.innerHTML = '';
-            
-            products.forEach(product => {
-                const status = product.stock > 20 ? 'In Stock' : 
-                              product.stock > 0 ? 'Low Stock' : 'Out of Stock';
-                const statusClass = product.stock > 20 ? 'success' : 
-                                   product.stock > 0 ? 'warning' : 'danger';
-                
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td><strong>${product.name}</strong></td>
-                    <td>${product.sku}</td>
-                    <td>${product.stock}</td>
-                    <td>10</td>
-                    <td><span class="status status-${statusClass}">${status}</span></td>
-                    <td>Today</td>
-                    <td>
-                        <button class="btn btn-primary btn-sm" onclick="updateStock('${product.id}')">
-                            <i class="fas fa-edit"></i> Update
-                        </button>
-                    </td>
-                `;
-                table.appendChild(row);
-            });
-        }
-
-        function showStockTakeModal() {
-            alert('Stock take modal would appear here. In a real system, this would allow updating inventory counts.');
-        }
-
-        function updateStock(productId) {
-            const product = products.find(p => p.id === productId);
-            if (product) {
-                const newStock = prompt(`Enter new stock quantity for ${product.name}:`, product.stock);
-                if (newStock !== null && !isNaN(newStock) && newStock >= 0) {
-                    product.stock = parseInt(newStock);
-                    localStorage.setItem('kavency_products', JSON.stringify(products));
-                    loadInventoryTable();
-                    filterProducts();
-                    updateDashboardStats();
-                    alert('Stock updated successfully!');
-                }
-            }
-        }
-
-        // ==================== DELIVERY MANAGEMENT ====================
-        function loadDeliveryTable() {
-            const table = document.querySelector('#deliveryTable tbody');
-            table.innerHTML = '';
-            
-            const pendingOrders = orders.filter(o => o.status === 'processing' || o.status === 'pending');
-            const outOrders = orders.filter(o => o.status === 'processing');
-            const completedOrders = orders.filter(o => o.status === 'delivered');
-            
-            document.getElementById('pendingDeliveryCount').textContent = pendingOrders.length;
-            document.getElementById('outDeliveryCount').textContent = outOrders.length;
-            document.getElementById('completedDeliveryCount').textContent = completedOrders.length;
-            
-            // Show pending orders by default
-            pendingOrders.forEach(order => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td><strong>${order.id}</strong></td>
-                    <td>${order.customer}</td>
-                    <td>${order.address.substring(0, 30)}...</td>
-                    <td>${order.deliveryTime || 'ASAP'}</td>
-                    <td>Not assigned</td>
-                    <td><span class="status status-${order.status}">${order.status.charAt(0).toUpperCase() + order.status.slice(1)}</span></td>
-                    <td>
-                        <button class="btn btn-primary btn-sm">
-                            <i class="fas fa-user-check"></i> Assign
-                        </button>
-                    </td>
-                `;
-                table.appendChild(row);
-            });
-        }
-
-        function switchDeliveryTab(tab) {
-            // Update active tab
-            document.querySelectorAll('.tabs .tab').forEach(tabEl => {
-                tabEl.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            
-            // Filter orders by status
-            let filteredOrders = [];
-            switch(tab) {
-                case 'pending':
-                    filteredOrders = orders.filter(o => o.status === 'processing' || o.status === 'pending');
-                    break;
-                case 'out':
-                    filteredOrders = orders.filter(o => o.status === 'processing');
-                    break;
-                case 'completed':
-                    filteredOrders = orders.filter(o => o.status === 'delivered');
-                    break;
-            }
-            
-            // Update table
-            const table = document.querySelector('#deliveryTable tbody');
-            table.innerHTML = '';
-            
-            filteredOrders.forEach(order => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td><strong>${order.id}</strong></td>
-                    <td>${order.customer}</td>
-                    <td>${order.address.substring(0, 30)}...</td>
-                    <td>${order.deliveryTime || 'ASAP'}</td>
-                    <td>${tab === 'completed' ? 'Driver 1' : 'Not assigned'}</td>
-                    <td><span class="status status-${order.status}">${order.status.charAt(0).toUpperCase() + order.status.slice(1)}</span></td>
-                    <td>
-                        <button class="btn btn-primary btn-sm">
-                            <i class="fas fa-user-check"></i> Assign
-                        </button>
-                    </td>
-                `;
-                table.appendChild(row);
-            });
-        }
-
-        function assignDeliveries() {
-            alert('Delivery assignment modal would appear here. In a real system, this would assign drivers to deliveries.');
-        }
-
-        // ==================== PAYMENT MANAGEMENT ====================
-        function switchPaymentTab(tab) {
-            // Update active tab
-            document.querySelectorAll('.tabs .tab').forEach(tabEl => {
-                tabEl.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            
-            // In a real system, this would load different content for each tab
-            alert(`Switched to ${tab} tab. Content would load here.`);
-        }
-
-        function savePaymentSettings() {
-            alert('Payment settings saved successfully!');
-        }
-
-        // ==================== REPORT MANAGEMENT ====================
-        function generateReport() {
-            const startDate = document.getElementById('reportStartDate').value;
-            const endDate = document.getElementById('reportEndDate').value;
-            const reportType = document.getElementById('reportType').value;
-            
-            if (!startDate || !endDate) {
-                alert('Please select both start and end dates');
-                return;
-            }
-            
-            // Generate sample report data
-            const table = document.querySelector('#reportTable tbody');
-            table.innerHTML = '';
-            
-            // Sample data for demo
-            const sampleData = [
-                { date: '2023-10-15', orders: 24, revenue: 4850.75, products: 56, avg: 202.11 },
-                { date: '2023-10-14', orders: 19, revenue: 3890.25, products: 42, avg: 204.75 },
-                { date: '2023-10-13', orders: 22, revenue: 4520.50, products: 51, avg: 205.48 },
-                { date: '2023-10-12', orders: 18, revenue: 3715.80, products: 39, avg: 206.43 },
-                { date: '2023-10-11', orders: 21, revenue: 4290.60, products: 47, avg: 204.31 }
-            ];
-            
-            sampleData.forEach(data => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${data.date}</td>
-                    <td>${data.orders}</td>
-                    <td>K${data.revenue.toFixed(2)}</td>
-                    <td>${data.products}</td>
-                    <td>K${data.avg.toFixed(2)}</td>
-                `;
-                table.appendChild(row);
-            });
-            
-            alert(`Report generated for ${reportType} from ${startDate} to ${endDate}`);
-        }
-
-        function exportReport() {
-            alert('Report exported successfully! In a real system, this would download a PDF or Excel file.');
-        }
-
-        function generateDailyReport() {
-            alert('Daily report generated!');
-        }
-
-        function generateWeeklyReport() {
-            alert('Weekly report generated!');
-        }
-
-        // ==================== SETTINGS MANAGEMENT ====================
-        function switchSettingsTab(tab) {
-            // Update active tab
-            document.querySelectorAll('.tabs .tab').forEach(tabEl => {
-                tabEl.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            
-            // In a real system, this would load different settings for each tab
-            alert(`Switched to ${tab} settings.`);
-        }
-
         // ==================== UTILITY FUNCTIONS ====================
         function searchContent() {
             const searchTerm = document.getElementById('adminSearch').value.toLowerCase();
-            
-            // In a real system, this would search across all content
             console.log('Searching for:', searchTerm);
         }
 
@@ -2263,15 +2169,8 @@
             }
         }
 
-        function updateFrontendStore() {
-            // In a real system, this would update the frontend store via API
-            // For now, we'll just update localStorage which the frontend can read
-            localStorage.setItem('kavency_store_updated', new Date().toISOString());
-        }
-
         function logout() {
             if (confirm('Are you sure you want to logout?')) {
-                // In a real system, this would clear session and redirect
                 alert('Logged out successfully!');
                 window.location.href = 'index.html';
             }
@@ -2297,7 +2196,8 @@
             // Handle window resize
             window.addEventListener('resize', function() {
                 if (window.innerWidth > 768) {
-                    document.getElementById('sidebar').classList.remove('active');
+                    const sidebar = document.getElementById('sidebar');
+                    if (sidebar) sidebar.classList.remove('active');
                 }
             });
         }
